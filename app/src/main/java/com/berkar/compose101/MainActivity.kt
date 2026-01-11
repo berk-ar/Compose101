@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -28,19 +29,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
-    Text(
-        text = "Hello Android!",
-        color = Color.Blue,
-        fontSize = 24.sp,
-        fontWeight = FontWeight.Bold
-    )
+    Column {
+        Text(
+            text = "Hello Android!",
+            color = Color.Blue,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold
+        )
 
-    Text(
-        text = "Hello World!",
-        color = Color.Blue,
-        fontSize = 24.sp,
-        fontWeight = FontWeight.Bold
-    )
+        Text(
+            text = "Hello World!",
+            color = Color.Blue,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold
+        )
+    }
 }
 
 @Preview(showBackground = true)
