@@ -10,7 +10,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.berkar.compose101.ui.theme.Compose101Theme
 
 class MainActivity : ComponentActivity() {
@@ -18,30 +21,30 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Compose101Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            MainScreen()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun MainScreen() {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "Hello Android!",
+        color = Color.Blue,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Bold
+    )
+
+    Text(
+        text = "Hello World!",
+        color = Color.Blue,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Bold
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Compose101Theme {
-        Greeting("Android")
-    }
+    MainScreen()
 }
