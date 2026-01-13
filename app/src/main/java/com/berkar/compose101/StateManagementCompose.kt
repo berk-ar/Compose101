@@ -14,7 +14,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,9 +25,12 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.berkar.compose101.ui.theme.Compose101Theme
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class StateManagementCompose : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,13 +51,26 @@ fun MainScreenStateManagement() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            var myString by remember { mutableStateOf("Hello Compose") }
+
+            TextField(value = myString, onValueChange = {
+                myString = it
+                println(myString)
+            })
+
+            Spacer(modifier = Modifier.padding(5.dp))
+
+            var myAndroid by remember { mutableStateOf("Hello Android") }
             Text(
-                text = "Hello Android"
+                text = myAndroid
             )
 
             Spacer(modifier = Modifier.padding(5.dp))
 
-            Button(onClick = { println("Button Clicked") }) {
+            Button(onClick = {
+                myAndroid = "Hello Compose"
+                println(myAndroid)
+            }) {
                 Text(text = "Button")
             }
 
