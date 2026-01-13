@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -51,6 +52,19 @@ fun MainScreen() {
         CustomText(text = "Hello World!")
         Spacer(modifier = Modifier.padding(5.dp))
         CustomText(text = "Hello Kotlin!")
+        Spacer(modifier = Modifier.padding(5.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            CustomText(text = "Test 1")
+            Spacer(modifier = Modifier.padding(5.dp))
+            CustomText(text = "Test 2")
+            Spacer(modifier = Modifier.padding(5.dp))
+            CustomText(text = "Test 3")
+        }
     }
 }
 
@@ -63,7 +77,7 @@ fun CustomText(text: String) {
             .clickable {
                 println("\"$text\"  clicked")
             }
-            .width(200.dp),
+            .width(100.dp),
         //.fillMaxSize(0.5f),
         text = text,
         color = Color.White,
