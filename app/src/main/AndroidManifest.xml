@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose101">
         <activity
-            android:name=".StateManagementCompose"
+            android:name=".RetrofitCompose"
             android:exported="true"
-            android:label="@string/title_activity_state_management_compose"
+            android:label="@string/title_activity_retrofit_compose"
             android:theme="@style/Theme.Compose101">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".StateManagementCompose"
+            android:exported="true"
+            android:label="@string/title_activity_state_management_compose"
+            android:theme="@style/Theme.Compose101">
         </activity>
         <activity
             android:name=".MainActivity"
