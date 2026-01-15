@@ -15,12 +15,16 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,6 +51,8 @@ class RetrofitCompose : ComponentActivity() {
 @Composable
 fun MainScreenRetrofit() {
 
+    val cryptoModels = remember { mutableStateListOf<CryptoModel>() }
+
     val BASE_URL = "https://raw.githubusercontent.com/"
 
     val retrofit = Retrofit.Builder()
@@ -64,9 +70,7 @@ fun MainScreenRetrofit() {
         ) {
             if (response.isSuccessful) {
                 response.body()?.let {
-                    it.forEach {
-                        println(it.currency)
-                    }
+                    cryptoModels.addAll(it)
                 }
             }
         }
@@ -86,7 +90,7 @@ fun MainScreenRetrofit() {
                 .fillMaxSize()
                 .padding(innerpadding)
         ) {
-
+            CryptoList(cryptos = cryptoModels)
         }
     }
 }
@@ -121,7 +125,7 @@ fun CryptoRow(crypto: CryptoModel) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = MaterialTheme.colorScheme.surface)
+            .background(color = Color.Red)
     ) {
         Text(
             text = crypto.currency,
@@ -140,6 +144,6 @@ fun CryptoRow(crypto: CryptoModel) {
 @Composable
 fun GreetingPreview3() {
     Compose101Theme {
-        CryptoRow(CryptoModel("BTC", "123123"))
+        MainScreenRetrofit()
     }
 }
