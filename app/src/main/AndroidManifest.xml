@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Compose101">
         <activity
-            android:name=".RetrofitCompose"
+            android:name=".NavigationActivity"
             android:exported="true"
-            android:label="@string/title_activity_retrofit_compose"
+            android:label="@string/title_activity_navigation"
             android:theme="@style/Theme.Compose101">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,10 +25,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RetrofitCompose"
+            android:exported="true"
+            android:label="@string/title_activity_retrofit_compose"
+            android:theme="@style/Theme.Compose101">
+
+        </activity>
+        <activity
             android:name=".StateManagementCompose"
             android:exported="true"
             android:label="@string/title_activity_state_management_compose"
             android:theme="@style/Theme.Compose101">
+
         </activity>
         <activity
             android:name=".MainActivity"

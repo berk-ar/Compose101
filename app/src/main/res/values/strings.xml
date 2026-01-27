@@ -2,4 +2,5 @@
     <string name="app_name">Compose101</string>
     <string name="title_activity_state_management_compose">StateManagementCompose</string>
     <string name="title_activity_retrofit_compose">RetrofitCompose</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
 </resources>
